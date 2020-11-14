@@ -11,7 +11,7 @@ const router = (app) => {
   app.post('/maker', mid.requiresLogin, controllers.Domo.make);
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
   app.get('/getDomos', mid.requiresLogin, controllers.Domo.getDomos);
-  app.use(function (req, res, next) {
+  app.use(function (req, res) {
     res.status(404).send("Sorry can't find that!")
   })
 };
