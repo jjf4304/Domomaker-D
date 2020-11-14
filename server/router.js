@@ -12,7 +12,8 @@ const router = (app) => {
   app.get('/', mid.requiresSecure, mid.requiresLogout, controllers.Account.loginPage);
   app.get('/getDomos', mid.requiresLogin, controllers.Domo.getDomos);
   app.use((req, res) => {
-    res.status(404).send('/login');
+    res.status(404);
+    res.redirect('/login');
   });
 };
 
